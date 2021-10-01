@@ -1,13 +1,13 @@
 import Slider from "react-slick";
+import { map } from "ramda";
+
 import { Trend } from "../../../../types";
 
 import CarouselItem from "../CarouselItem";
-import Wrapper from "../Wrapper";
-
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import Wrapper from "./Wrapper";
 
 const settings = {
+  arrows: true,
   dots: true,
   infinite: true,
   speed: 500,
@@ -24,9 +24,12 @@ interface CarouselProps {
 const Carousel = ({ data }: CarouselProps) => (
   <Wrapper>
     <Slider {...settings}>
-      {data.map((item) => (
-        <CarouselItem key={item.id} data={item} />
-      ))}
+      {map(
+        (item) => (
+          <CarouselItem key={item.id} data={item} />
+        ),
+        data
+      )}
     </Slider>
   </Wrapper>
 );

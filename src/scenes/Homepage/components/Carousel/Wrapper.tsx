@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 const Wrapper = styled.div`
+  margin-bottom: 2rem;
   width: 100%;
   overflow: hidden;
 

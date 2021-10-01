@@ -1,6 +1,8 @@
 import { ReactNode } from "react";
+
 import { Genre } from "../../types";
 
+import Footer from "../Footer";
 import Nav from "../Nav";
 
 interface LayoutProps {
@@ -9,13 +11,12 @@ interface LayoutProps {
   tvList: Genre[];
 }
 
-const Layout = ({ children, movieList, tvList }: LayoutProps) => {
-  return (
-    <>
-      <Nav movieList={movieList} tvList={tvList} />
-      {children}
-    </>
-  );
-};
+const Layout = ({ children, movieList, tvList }: LayoutProps) => (
+  <>
+    <Nav movieList={movieList} tvList={tvList} />
+    {children}
+    <Footer />
+  </>
+);
 
 export default Layout;

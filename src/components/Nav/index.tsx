@@ -2,6 +2,7 @@ import { Button } from "@chakra-ui/button";
 import { Box, Flex, Text } from "@chakra-ui/layout";
 import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/menu";
 import { BiChevronDown } from "react-icons/bi";
+import { map } from "ramda";
 
 import { Genre } from "../../types";
 
@@ -19,7 +20,7 @@ const Nav = ({ movieList, tvList }: NavProps) => (
     py="2"
   >
     <Box>
-      <Text as="h1" fontSize="2xl" fontWeight="semibold">
+      <Text as="h1" fontSize="2xl" fontWeight="semibold" color="teal.500">
         Poodle
       </Text>
     </Box>
@@ -34,9 +35,12 @@ const Nav = ({ movieList, tvList }: NavProps) => (
             TV Series
           </MenuButton>
           <MenuList>
-            {tvList.map((item: Genre) => (
-              <MenuItem key={item.id}>{item.name}</MenuItem>
-            ))}
+            {map(
+              (item: Genre) => (
+                <MenuItem key={item.id}>{item.name}</MenuItem>
+              ),
+              tvList
+            )}
           </MenuList>
         </Menu>
       </Box>
@@ -50,9 +54,12 @@ const Nav = ({ movieList, tvList }: NavProps) => (
             Movies
           </MenuButton>
           <MenuList>
-            {movieList.map((item: Genre) => (
-              <MenuItem key={item.id}>{item.name}</MenuItem>
-            ))}
+            {map(
+              (item: Genre) => (
+                <MenuItem key={item.id}>{item.name}</MenuItem>
+              ),
+              movieList
+            )}
           </MenuList>
         </Menu>
       </Box>

@@ -1,20 +1,32 @@
-import { Flex } from "@chakra-ui/layout";
+import { Box, Flex, Text } from "@chakra-ui/layout";
+
+import { capitalize } from "../../../../utils/string";
 
 import { useTrending } from "../../../../queries/trending";
 
 import Spinner from "../../../../components/Spinner";
-import Carousel from "../../components/Carousel";
+import Slider from "../../components/Slider";
 
-const TrendingContainer = () => {
-  const { data, isLoading } = useTrending();
+interface CarouselContainerProps {
+  mediaType: "movie" | "tv";
+}
 
-  if (isLoading) {
-    <Flex alignItems="center" justifyContent="center">
-      <Spinner />
-    </Flex>;
-  }
+const CarouselContainer = ({ mediaType }: CarouselContainerProps) => {
+  const { data, isLoading } = useTrending(mediaType);
 
-  return <div>{data && <Carousel data={data.results} />}</div>;
+  return (
+    <Box marginBottom="8">
+      <Text px="6" marginBottom="2" fontSize="lg" fontWeight="semibold">
+        {capitalize(mediaType)} Trending
+      </Text>
+      {isLoading && (
+        <Flex alignItems="center" justifyContent="center">
+          <Spinner />
+        </Flex>
+      )}
+      {data && <Slider data={data.results} />}
+    </Box>
+  );
 };
 
-export default TrendingContainer;
+export default CarouselContainer;
