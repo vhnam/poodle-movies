@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react'
+import React, { MouseEventHandler } from 'react';
 import {
   TableInstance,
   UseColumnOrderInstanceProps,
@@ -42,17 +42,17 @@ import {
   UseSortByInstanceProps,
   UseSortByOptions,
   UseSortByState,
-} from 'react-table'
+} from 'react-table';
 
 declare module 'react-table' {
   export interface UseFlexLayoutInstanceProps<
     D extends Record<string, unknown>
   > {
-    totalColumnsMinWidth: number
+    totalColumnsMinWidth: number;
   }
 
   export interface UseFlexLayoutColumnProps<D extends Record<string, unknown>> {
-    totalMinWidth: number
+    totalMinWidth: number;
   }
 
   export interface TableOptions<D extends Record<string, unknown>>
@@ -97,7 +97,7 @@ declare module 'react-table' {
       UseResizeColumnsState<D>,
       UseRowSelectState<D>,
       UseSortByState<D> {
-    rowCount: number
+    rowCount: number;
   }
 
   export interface ColumnInterface<
@@ -106,7 +106,7 @@ declare module 'react-table' {
       UseGroupByColumnOptions<D>,
       UseResizeColumnsColumnOptions<D>,
       UseSortByColumnOptions<D> {
-    align?: string
+    align?: string;
   }
 
   export interface ColumnInstance<
@@ -129,4 +129,4 @@ declare module 'react-table' {
 
 export type TableMouseEventHandler = (
   instance: TableInstance<T>
-) => MouseEventHandler
+) => MouseEventHandler;

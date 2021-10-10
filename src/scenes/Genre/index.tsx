@@ -1,26 +1,26 @@
-import { useMemo, useState } from "react";
-import { Box } from "@chakra-ui/layout";
-import { useParams } from "react-router-dom";
-import { concat, equals, find, ifElse, prop, propEq, propOr } from "ramda";
-import { useAtom } from "jotai";
+import { useMemo, useState } from 'react';
+import { Box } from '@chakra-ui/layout';
+import { useParams } from 'react-router-dom';
+import { concat, equals, find, ifElse, prop, propEq, propOr } from 'ramda';
+import { useAtom } from 'jotai';
 
-import { Genre } from "../../types";
+import { Genre } from '../../types';
 
-import { format } from "../../utils/number";
-import { isEmptyOrNil } from "../../utils/ramda";
-import { capitalize } from "../../utils/string";
+import { format } from '../../utils/number';
+import { isEmptyOrNil } from '../../utils/ramda';
+import { capitalize } from '../../utils/string';
 
-import { useGenre } from "../../queries/genre";
+import { useGenre } from '../../queries/genre';
 
-import tvListAtom from "../../stores/tvList";
-import movieListAtom from "../../stores/movieList";
+import tvListAtom from '../../stores/tvList';
+import movieListAtom from '../../stores/movieList';
 
-import Header from "./components/Header";
-import MediaList from "./components/MediaList";
+import Header from './components/Header';
+import MediaList from './components/MediaList';
 
 type GenreParams = {
   genreID: string;
-  mediaType: "movie" | "tv";
+  mediaType: 'movie' | 'tv';
 };
 
 const GenreList = () => {
@@ -35,28 +35,28 @@ const GenreList = () => {
 
   const title = useMemo(() => {
     const getList = ifElse(
-      equals("movie"),
+      equals('movie'),
       () => movieList.genres,
       () => tvList.genres
     );
 
-    const genre = find<Genre>(propEq("id", Number(genreID)))(
+    const genre = find<Genre>(propEq('id', Number(genreID)))(
       getList(mediaType)
     );
 
     return concat(
-      concat(capitalize(mediaType), " - "),
-      ifElse(isEmptyOrNil, () => "Unknown", prop("name"))(genre)
+      concat(capitalize(mediaType), ' - '),
+      ifElse(isEmptyOrNil, () => 'Unknown', prop('name'))(genre)
     );
   }, [genreID, mediaType, movieList.genres, tvList.genres]);
 
   const totalResults = useMemo(
-    () => format(propOr(0, "total_results", data)),
+    () => format(propOr(0, 'total_results', data)),
     [data]
   );
 
   const totalPages = useMemo(
-    () => format(propOr(0, "total_pages", data)),
+    () => format(propOr(0, 'total_pages', data)),
     [data]
   );
 

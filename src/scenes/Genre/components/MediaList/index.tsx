@@ -1,14 +1,14 @@
-import { useEffect, useMemo } from "react";
-import { Box, Text } from "@chakra-ui/layout";
-import { Table, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/table";
-import { useTable, usePagination } from "react-table";
+import { useEffect, useMemo } from 'react';
+import { Box, Text } from '@chakra-ui/layout';
+import { Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/table';
+import { useTable, usePagination } from 'react-table';
 
-import { format } from "../../../../utils/number";
+import { format } from '../../../../utils/number';
 
-import { Media } from "../../../../types";
+import { Media } from '../../../../types';
 
-import Pagination from "../../../../components/Pagination";
-import Spinner from "../../../../components/Spinner";
+import Pagination from '../../../../components/Pagination';
+import Spinner from '../../../../components/Spinner';
 
 const PAGE_SIZE = Number(process.env.REACT_APP_PAGE_SIZE) || 20;
 
@@ -28,7 +28,7 @@ const MediaList = ({
   const columns = useMemo(
     () => [
       {
-        Header: "Title",
+        Header: 'Title',
         accessor: (originalRow: Media) => (
           <Text fontSize="sm">
             {originalRow.title ||
@@ -39,25 +39,25 @@ const MediaList = ({
         ),
       },
       {
-        Header: "Overview",
+        Header: 'Overview',
         accessor: (originalRow: Media) => (
           <Text fontSize="sm">{originalRow.overview}</Text>
         ),
       },
       {
-        Header: "Popularity",
+        Header: 'Popularity',
         accessor: (originalRow: Media) => (
           <Text fontSize="sm">{format(originalRow.popularity)}</Text>
         ),
       },
       {
-        Header: "Vote Average",
+        Header: 'Vote Average',
         accessor: (originalRow: Media) => (
           <Text fontSize="sm">{originalRow.vote_average}</Text>
         ),
       },
       {
-        Header: "Vote Count",
+        Header: 'Vote Count',
         accessor: (originalRow: Media) => (
           <Text fontSize="sm">{format(originalRow.vote_count)}</Text>
         ),
@@ -101,7 +101,7 @@ const MediaList = ({
     <>
       <Box mx="8" boxShadow="base">
         <Table
-          variant={page.length ? "striped" : "simple"}
+          variant={page.length ? 'striped' : 'simple'}
           {...getTableProps()}
         >
           <colgroup>
@@ -118,7 +118,7 @@ const MediaList = ({
                     backgroundColor="white"
                     {...column.getHeaderProps()}
                   >
-                    {column.render("Header")}
+                    {column.render('Header')}
                   </Th>
                 ))}
               </Tr>
@@ -139,7 +139,7 @@ const MediaList = ({
               return (
                 <Tr {...row.getRowProps()}>
                   {row.cells.map((cell) => (
-                    <Td {...cell.getCellProps()}>{cell.render("Cell")}</Td>
+                    <Td {...cell.getCellProps()}>{cell.render('Cell')}</Td>
                   ))}
                 </Tr>
               );

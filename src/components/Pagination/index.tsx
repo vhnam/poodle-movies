@@ -1,12 +1,12 @@
-import { IconButton } from "@chakra-ui/button";
-import { Input } from "@chakra-ui/input";
-import { Flex, Text } from "@chakra-ui/layout";
+import { IconButton } from '@chakra-ui/button';
+import { Input } from '@chakra-ui/input';
+import { Flex, Text } from '@chakra-ui/layout';
 import {
   BiChevronLeft,
   BiChevronRight,
   BiChevronsLeft,
   BiChevronsRight,
-} from "react-icons/bi";
+} from 'react-icons/bi';
 
 interface PaginationProps {
   canPreviousPage: boolean;

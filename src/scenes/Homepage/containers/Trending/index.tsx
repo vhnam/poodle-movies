@@ -1,14 +1,14 @@
-import { Box, Flex, Text } from "@chakra-ui/layout";
+import { Box, Flex, Text } from '@chakra-ui/layout';
 
-import { capitalize } from "../../../../utils/string";
+import { capitalize } from '../../../../utils/string';
 
-import { useTrending } from "../../../../queries/trending";
+import { useTrending } from '../../../../queries/trending';
 
-import Spinner from "../../../../components/Spinner";
-import Slider from "../../components/Slider";
+import Spinner from '../../../../components/Spinner';
+import Slider from '../../components/Slider';
 
 interface CarouselContainerProps {
-  mediaType: "movie" | "tv";
+  mediaType: 'movie' | 'tv';
 }
 
 const CarouselContainer = ({ mediaType }: CarouselContainerProps) => {

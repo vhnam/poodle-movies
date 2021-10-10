@@ -1,4 +1,4 @@
-import { Media } from ".";
+import { Media } from '.';
 
 export type TrendingResponse = {
   page: number;

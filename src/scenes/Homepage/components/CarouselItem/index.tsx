@@ -1,10 +1,10 @@
-import { useMemo } from "react";
-import { Image } from "@chakra-ui/image";
-import { Box, Text } from "@chakra-ui/layout";
-import { Skeleton } from "@chakra-ui/skeleton";
+import { useMemo } from 'react';
+import { Image } from '@chakra-ui/image';
+import { Box, Text } from '@chakra-ui/layout';
+import { Skeleton } from '@chakra-ui/skeleton';
 
-import { Media } from "../../../../types";
-import getImage from "../../../../utils/getImage";
+import { Media } from '../../../../types';
+import getImage from '../../../../utils/getImage';
 
 interface CarouselItemProps {
   data: Media;

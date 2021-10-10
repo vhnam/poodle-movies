@@ -1,10 +1,10 @@
-import { ThemeConfig, extendTheme } from "@chakra-ui/react";
+import { ThemeConfig, extendTheme } from '@chakra-ui/react';
 
-import styles from "./styles";
+import styles from './styles';
 
 const config: ThemeConfig = {
-  cssVarPrefix: "poodle",
-  initialColorMode: "light",
+  cssVarPrefix: 'poodle',
+  initialColorMode: 'light',
   useSystemColorMode: false,
 };
 

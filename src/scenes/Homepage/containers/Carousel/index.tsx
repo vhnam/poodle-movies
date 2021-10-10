@@ -1,12 +1,13 @@
-import { Flex } from "@chakra-ui/layout";
+import { Flex } from '@chakra-ui/layout';
 
-import { useTrending } from "../../../../queries/trending";
+import { useTrending } from '../../../../queries/trending';
 
-import Spinner from "../../../../components/Spinner";
-import Carousel from "../../components/Carousel";
+import Spinner from '../../../../components/Spinner';
+
+import Carousel from '../../components/Carousel';
 
 const CarouselContainer = () => {
-  const { data, isLoading } = useTrending("all");
+  const { data, isLoading } = useTrending('all');
 
   if (isLoading) {
     <Flex alignItems="center" justifyContent="center">

@@ -1,4 +1,4 @@
-import { Media } from ".";
+import { Media } from '.';
 
 export type DiscoverResponse = {
   page: number;

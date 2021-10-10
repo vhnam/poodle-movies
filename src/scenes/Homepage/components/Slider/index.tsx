@@ -1,10 +1,10 @@
-import SlickSlider from "react-slick";
-import { map } from "ramda";
+import SlickSlider from 'react-slick';
+import { map } from 'ramda';
 
-import { Media } from "../../../../types";
+import { Media } from '../../../../types';
 
-import SliderItem from "../SliderItem";
-import Wrapper from "./Wrapper";
+import SliderItem from '../SliderItem';
+import Wrapper from './Wrapper';
 
 const settings = {
   infinite: true,

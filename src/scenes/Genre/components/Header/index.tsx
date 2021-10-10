@@ -1,4 +1,4 @@
-import { Box, Text } from "@chakra-ui/layout";
+import { Box, Text } from '@chakra-ui/layout';
 
 interface HeaderProps {
   title: string;

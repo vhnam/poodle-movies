@@ -1,9 +1,9 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
-import { Genre } from "../../types";
+import { Genre } from '../../types';
 
-import Footer from "../Footer";
-import Nav from "../Nav";
+import Footer from '../Footer';
+import Nav from '../Nav';
 
 interface LayoutProps {
   children: ReactNode;

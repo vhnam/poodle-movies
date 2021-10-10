@@ -1,6 +1,6 @@
-import { Flex } from "@chakra-ui/layout";
+import { Flex } from '@chakra-ui/layout';
 
-import Spinner from "../../components/Spinner";
+import Spinner from '../../components/Spinner';
 
 const Loading = () => (
   <Flex alignItems="center" justifyContent="center" minHeight="100vh">

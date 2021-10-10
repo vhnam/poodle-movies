@@ -1,25 +1,25 @@
-import { APIs } from "./types";
+import { APIs } from './types';
 
 const apis: APIs = {
   getGenres: {
     url: (platform: string) => `/genre/${platform}/list`,
-    method: "GET",
+    method: 'GET',
   },
   getTrending: {
     url: (mediaType: string, timeWindow: string) =>
       `/trending/${mediaType}/${timeWindow}`,
-    method: "GET",
+    method: 'GET',
   },
   discover: {
     url: (mediaType: string, genreID: string, page: number) =>
       `/discover/${mediaType}?with_genres=${genreID}&page=${page}`,
-    method: "GET",
+    method: 'GET',
   },
 };
 
 const paths: Record<string, any> = {
-  homepage: "/",
-  genre: "/genre/:mediaType/:genreID",
+  homepage: '/',
+  genre: '/genre/:mediaType/:genreID',
 };
 
 const config = {

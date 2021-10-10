@@ -1,11 +1,11 @@
-import { useMemo } from "react";
-import { Image } from "@chakra-ui/image";
-import { Box } from "@chakra-ui/layout";
-import { Skeleton } from "@chakra-ui/skeleton";
-import { Tooltip } from "@chakra-ui/react";
+import { useMemo } from 'react';
+import { Image } from '@chakra-ui/image';
+import { Box } from '@chakra-ui/layout';
+import { Skeleton } from '@chakra-ui/skeleton';
+import { Tooltip } from '@chakra-ui/react';
 
-import { Media } from "../../../../types";
-import getImage from "../../../../utils/getImage";
+import { Media } from '../../../../types';
+import getImage from '../../../../utils/getImage';
 
 interface SliderItemProps {
   data: Media;

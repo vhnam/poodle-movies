@@ -1,15 +1,15 @@
-import React, { Suspense } from "react";
-import ReactDOM from "react-dom";
-import { ChakraProvider } from "@chakra-ui/react";
-import { Provider } from "jotai";
-import { QueryClient, QueryClientProvider } from "react-query";
+import React, { Suspense } from 'react';
+import ReactDOM from 'react-dom';
+import { ChakraProvider } from '@chakra-ui/react';
+import { Provider } from 'jotai';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
-import "@fontsource/be-vietnam-pro";
+import '@fontsource/be-vietnam-pro';
 
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-import Loading from "./scenes/Loading";
+import Loading from './scenes/Loading';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -31,7 +31,7 @@ ReactDOM.render(
       </QueryClientProvider>
     </Provider>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

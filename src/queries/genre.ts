@@ -1,8 +1,8 @@
-import { useQuery } from "react-query";
+import { useQuery } from 'react-query';
 
-import config from "../config";
-import { DiscoverResponse } from "../types";
-import api from "../utils/api";
+import config from '../config';
+import { DiscoverResponse } from '../types';
+import api from '../utils/api';
 
 export const useGenre = (mediaType: string, genreID: string, page: number) =>
   useQuery(

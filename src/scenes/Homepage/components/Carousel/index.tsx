@@ -1,10 +1,10 @@
-import Slider from "react-slick";
-import { map } from "ramda";
+import Slider from 'react-slick';
+import { map } from 'ramda';
 
-import { Media } from "../../../../types";
+import { Media } from '../../../../types';
 
-import CarouselItem from "../CarouselItem";
-import Wrapper from "./Wrapper";
+import CarouselItem from '../CarouselItem';
+import Wrapper from './Wrapper';
 
 const settings = {
   arrows: true,

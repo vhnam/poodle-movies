@@ -1,12 +1,12 @@
-import { Button } from "@chakra-ui/button";
-import { Box, Flex, Text } from "@chakra-ui/layout";
-import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/menu";
-import { BiChevronDown } from "react-icons/bi";
-import { map } from "ramda";
-import { Link } from "react-router-dom";
+import { Button } from '@chakra-ui/button';
+import { Box, Flex, Text } from '@chakra-ui/layout';
+import { Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/menu';
+import { BiChevronDown } from 'react-icons/bi';
+import { map } from 'ramda';
+import { Link } from 'react-router-dom';
 
-import config from "../../config";
-import { Genre } from "../../types";
+import config from '../../config';
+import { Genre } from '../../types';
 
 interface NavProps {
   movieList: Genre[];
