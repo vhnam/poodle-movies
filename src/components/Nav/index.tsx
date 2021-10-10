@@ -3,7 +3,9 @@ import { Box, Flex, Text } from "@chakra-ui/layout";
 import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/menu";
 import { BiChevronDown } from "react-icons/bi";
 import { map } from "ramda";
+import { Link } from "react-router-dom";
 
+import config from "../../config";
 import { Genre } from "../../types";
 
 interface NavProps {
@@ -20,7 +22,13 @@ const Nav = ({ movieList, tvList }: NavProps) => (
     py="2"
   >
     <Box>
-      <Text as="h1" fontSize="2xl" fontWeight="semibold" color="teal.500">
+      <Text
+        as={Link}
+        to={config.paths.homepage}
+        fontSize="2xl"
+        fontWeight="semibold"
+        color="teal.500"
+      >
         Poodle
       </Text>
     </Box>
@@ -37,7 +45,9 @@ const Nav = ({ movieList, tvList }: NavProps) => (
           <MenuList>
             {map(
               (item: Genre) => (
-                <MenuItem key={item.id}>{item.name}</MenuItem>
+                <MenuItem as={Link} key={item.id} to={`/genre/tv/${item.id}`}>
+                  {item.name}
+                </MenuItem>
               ),
               tvList
             )}
@@ -56,7 +66,13 @@ const Nav = ({ movieList, tvList }: NavProps) => (
           <MenuList>
             {map(
               (item: Genre) => (
-                <MenuItem key={item.id}>{item.name}</MenuItem>
+                <MenuItem
+                  as={Link}
+                  key={item.id}
+                  to={`/genre/movie/${item.id}`}
+                >
+                  {item.name}
+                </MenuItem>
               ),
               movieList
             )}

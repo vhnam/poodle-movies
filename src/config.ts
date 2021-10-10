@@ -10,10 +10,16 @@ const apis: APIs = {
       `/trending/${mediaType}/${timeWindow}`,
     method: "GET",
   },
+  discover: {
+    url: (mediaType: string, genreID: string, page: number) =>
+      `/discover/${mediaType}?with_genres=${genreID}&page=${page}`,
+    method: "GET",
+  },
 };
 
-const paths: Record<string, string> = {
+const paths: Record<string, any> = {
   homepage: "/",
+  genre: "/genre/:mediaType/:genreID",
 };
 
 const config = {

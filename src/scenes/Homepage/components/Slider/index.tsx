@@ -1,7 +1,7 @@
 import SlickSlider from "react-slick";
 import { map } from "ramda";
 
-import { Trend } from "../../../../types";
+import { Media } from "../../../../types";
 
 import SliderItem from "../SliderItem";
 import Wrapper from "./Wrapper";
@@ -14,7 +14,7 @@ const settings = {
 };
 
 interface CarouselProps {
-  data: Trend[];
+  data: Media[];
 }
 
 const Slider = ({ data }: CarouselProps) => (

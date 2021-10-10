@@ -3,11 +3,11 @@ import { Image } from "@chakra-ui/image";
 import { Box, Text } from "@chakra-ui/layout";
 import { Skeleton } from "@chakra-ui/skeleton";
 
-import { Trend } from "../../../../types";
+import { Media } from "../../../../types";
 import getImage from "../../../../utils/getImage";
 
 interface CarouselItemProps {
-  data: Trend;
+  data: Media;
 }
 
 const CarouselItem = ({ data }: CarouselItemProps) => {

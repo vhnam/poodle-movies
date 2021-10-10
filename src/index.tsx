@@ -11,7 +11,13 @@ import reportWebVitals from "./reportWebVitals";
 
 import Loading from "./scenes/Loading";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 ReactDOM.render(
   <React.StrictMode>

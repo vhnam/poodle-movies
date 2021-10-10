@@ -4,11 +4,11 @@ import { Box } from "@chakra-ui/layout";
 import { Skeleton } from "@chakra-ui/skeleton";
 import { Tooltip } from "@chakra-ui/react";
 
-import { Trend } from "../../../../types";
+import { Media } from "../../../../types";
 import getImage from "../../../../utils/getImage";
 
 interface SliderItemProps {
-  data: Trend;
+  data: Media;
 }
 
 const SliderItem = ({ data }: SliderItemProps) => {

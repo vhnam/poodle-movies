@@ -9,23 +9,28 @@ import Spinner from "./components/Spinner";
 import AppContainer from "./containers/App";
 
 const App = () => (
-  <AppContainer>
-    {(movieList, tvList) => (
-      <Layout movieList={movieList} tvList={tvList}>
-        <Router>
-          <Suspense fallback={<Spinner />}>
+  <Router>
+    <Suspense fallback={<Spinner />}>
+      <AppContainer>
+        {(movieList, tvList) => (
+          <Layout movieList={movieList} tvList={tvList}>
             <Switch>
               <Route
                 exact
                 path={config.paths.homepage}
                 component={lazy(() => import("./scenes/Homepage"))}
               />
+              <Route
+                exact
+                path={config.paths.genre}
+                component={lazy(() => import("./scenes/Genre"))}
+              />
             </Switch>
-          </Suspense>
-        </Router>
-      </Layout>
-    )}
-  </AppContainer>
+          </Layout>
+        )}
+      </AppContainer>
+    </Suspense>
+  </Router>
 );
 
 export default App;
