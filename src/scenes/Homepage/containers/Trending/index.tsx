@@ -24,7 +24,7 @@ const CarouselContainer = ({ mediaType }: CarouselContainerProps) => {
           <Spinner />
         </Flex>
       )}
-      {data && <Slider data={data.results} />}
+      {data && <Slider mediaType={mediaType} data={data.results} />}
     </Box>
   );
 };

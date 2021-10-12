@@ -15,14 +15,15 @@ const settings = {
 
 interface CarouselProps {
   data: Media[];
+  mediaType: 'movie' | 'tv';
 }
 
-const Slider = ({ data }: CarouselProps) => (
+const Slider = ({ data, mediaType }: CarouselProps) => (
   <Wrapper>
     <SlickSlider {...settings}>
       {map(
         (item) => (
-          <SliderItem key={item.id} data={item} />
+          <SliderItem key={item.id} mediaType={mediaType} data={item} />
         ),
         data
       )}

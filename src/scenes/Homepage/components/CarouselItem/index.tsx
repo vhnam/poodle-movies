@@ -5,6 +5,8 @@ import { Skeleton } from '@chakra-ui/skeleton';
 
 import { Media } from '../../../../types';
 import getImage from '../../../../utils/getImage';
+import { Button } from '@chakra-ui/button';
+import { Link } from 'react-router-dom';
 
 interface CarouselItemProps {
   data: Media;
@@ -15,6 +17,8 @@ const CarouselItem = ({ data }: CarouselItemProps) => {
     () => data.title || data.name || data.original_title || data.original_name,
     [data]
   );
+
+  const mediaLink = useMemo(() => `/${data.media_type}s/${data.id}`, [data]);
 
   return (
     <Box position="relative">
@@ -46,6 +50,9 @@ const CarouselItem = ({ data }: CarouselItemProps) => {
         >
           {data.overview}
         </Text>
+        <Button marginTop="4" colorScheme="teal" as={Link} to={mediaLink}>
+          View detail
+        </Button>
       </Box>
     </Box>
   );
