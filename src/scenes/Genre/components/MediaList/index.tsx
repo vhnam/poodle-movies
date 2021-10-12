@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { Box, Text } from '@chakra-ui/layout';
 import { Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/table';
 import { useTable, usePagination } from 'react-table';
@@ -95,6 +95,38 @@ const MediaList = ({
     usePagination
   );
 
+  const render = useCallback(() => {
+    if (isLoading) {
+      return (
+        <Tr>
+          <Td colSpan={columns.length} textAlign="center">
+            <Spinner />
+          </Td>
+        </Tr>
+      );
+    } else {
+      return page.map((row) => {
+        prepareRow(row);
+
+        return (
+          <Tr
+            {...row.getRowProps()}
+            onClick={() => show(row.original.id)}
+            _hover={{
+              cursor: 'pointer',
+              backgroundColor: 'cyan.50',
+              filter: 'contrast(0.9)',
+            }}
+          >
+            {row.cells.map((cell) => (
+              <Td {...cell.getCellProps()}>{cell.render('Cell')}</Td>
+            ))}
+          </Tr>
+        );
+      });
+    }
+  }, [columns.length, isLoading, page, prepareRow, show]);
+
   useEffect(() => {
     setPage(pageIndex + 1);
   }, [pageIndex, setPage]);
@@ -126,30 +158,7 @@ const MediaList = ({
               </Tr>
             ))}
           </Thead>
-          <Tbody {...getTableBodyProps()}>
-            {isLoading && (
-              <Tr>
-                <Td colSpan={columns.length} textAlign="center">
-                  <Spinner />
-                </Td>
-              </Tr>
-            )}
-
-            {page.map((row) => {
-              prepareRow(row);
-
-              return (
-                <Tr
-                  {...row.getRowProps()}
-                  onClick={() => show(row.original.id)}
-                >
-                  {row.cells.map((cell) => (
-                    <Td {...cell.getCellProps()}>{cell.render('Cell')}</Td>
-                  ))}
-                </Tr>
-              );
-            })}
-          </Tbody>
+          <Tbody {...getTableBodyProps()}>{render()}</Tbody>
         </Table>
       </Box>
 
