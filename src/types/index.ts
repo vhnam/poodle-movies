@@ -5,5 +5,6 @@ export * from './genre';
 export * from './discover';
 export * from './media';
 export * from './movie';
-export * from './trending';
 export * from './spokenLanguage';
+export * from './trending';
+export * from './tv';

@@ -50,6 +50,7 @@ const MoviePage = () => {
         <Flex position="absolute" top="0" bottom="0" alignItems="center">
           <Box px="40">
             <MediaDetail
+              mediaType="movie"
               poster={movie.poster_path}
               title={movie.title || movie.original_title}
               overview={movie.overview}

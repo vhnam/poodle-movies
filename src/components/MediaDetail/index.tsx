@@ -3,13 +3,17 @@ import { Box, Divider, Flex, Text } from '@chakra-ui/layout';
 import { Skeleton } from '@chakra-ui/skeleton';
 
 import getImage from '../../utils/getImage';
+import { format } from '../../utils/number';
 
 interface MediaDetailProps {
-  duration: string;
-  genres: string;
+  duration?: string;
+  episodes?: number;
+  genres?: string;
   title: string;
   overview: string;
   poster: string;
+  mediaType: 'movie' | 'tv';
+  seasons?: number;
 }
 
 const MediaDetail = ({
@@ -18,6 +22,9 @@ const MediaDetail = ({
   title,
   overview,
   poster,
+  mediaType,
+  episodes,
+  seasons,
 }: MediaDetailProps) => (
   <Flex>
     <Image
@@ -42,12 +49,22 @@ const MediaDetail = ({
       >
         {title}
       </Text>
-      <Text
-        as="span"
-        textShadow="-1px 1px 8px #fff, 1px 1px 8px #fff, 1px -1px 8px #fff, -1px -1px 8px #fff;"
-      >
-        {duration}
-      </Text>
+      {'movie' === mediaType ? (
+        <Text
+          as="span"
+          textShadow="-1px 1px 8px #fff, 1px 1px 8px #fff, 1px -1px 8px #fff, -1px -1px 8px #fff;"
+        >
+          {duration}
+        </Text>
+      ) : (
+        <Text
+          as="span"
+          textShadow="-1px 1px 8px #fff, 1px 1px 8px #fff, 1px -1px 8px #fff, -1px -1px 8px #fff;"
+        >
+          {format(seasons ?? 1)} Seasons - {format(episodes ?? 0)} Episodes
+        </Text>
+      )}
+
       <Text
         as="span"
         px="6"

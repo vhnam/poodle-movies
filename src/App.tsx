@@ -30,6 +30,11 @@ const App = () => (
                 path={config.paths.movie}
                 component={lazy(() => import('./scenes/Movie'))}
               />
+              <Route
+                exact
+                path={config.paths.tv}
+                component={lazy(() => import('./scenes/TV'))}
+              />
             </Switch>
           </Layout>
         )}
