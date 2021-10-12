@@ -2,7 +2,7 @@ import { atomWithQuery } from 'jotai/query';
 
 import config from '../config';
 import { Genres } from '../types';
-import api from '../utils/api';
+import {api} from '../utils/api';
 
 const tvListAtom = atomWithQuery(() => ({
   queryKey: 'tv-list',

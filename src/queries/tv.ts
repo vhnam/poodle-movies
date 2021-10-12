@@ -2,7 +2,7 @@ import { useQuery } from 'react-query';
 
 import config from '../config';
 import { TV } from '../types';
-import api from '../utils/api';
+import {api} from '../utils/api';
 
 export const useTV = (tvID: string) =>
   useQuery(

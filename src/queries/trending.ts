@@ -2,7 +2,7 @@ import { useQuery } from 'react-query';
 
 import config from '../config';
 import { TrendingResponse } from '../types';
-import api from '../utils/api';
+import { api } from '../utils/api';
 
 export const useTrending = (mediaType: string) =>
   useQuery([`trending-${mediaType}`], async (): Promise<TrendingResponse> => {

@@ -1,4 +1,5 @@
 import { APIs } from './types';
+import { generateQueryString } from './utils/api';
 
 const apis: APIs = {
   getGenres: {
@@ -11,8 +12,17 @@ const apis: APIs = {
     method: 'GET',
   },
   discover: {
-    url: (mediaType: string, genreID: string, page: number) =>
-      `/discover/${mediaType}?with_genres=${genreID}&page=${page}`,
+    url: (
+      mediaType: string,
+      genreID: string,
+      page: number,
+      keywords?: string
+    ) =>
+      `/discover/${mediaType}${generateQueryString({
+        with_genres: genreID,
+        page,
+        with_keywords: keywords,
+      })}`,
     method: 'GET',
   },
   movie: {

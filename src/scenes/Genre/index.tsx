@@ -18,6 +18,7 @@ import movieListAtom from '../../stores/movieList';
 
 import Header from './components/Header';
 import MediaList from './components/MediaList';
+import FilterBlock from './components/FilterBlock';
 
 type GenreParams = {
   genreID: string;
@@ -28,9 +29,15 @@ const GenreList = () => {
   const { mediaType, genreID } = useParams<GenreParams>();
   const { push } = useHistory();
 
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState<number>(1);
+  const [keywords, setKeywords] = useState<string>();
 
-  const { data, isFetching, isLoading } = useGenre(mediaType, genreID, page);
+  const { data, isFetching, isLoading } = useGenre(
+    mediaType,
+    genreID,
+    page,
+    keywords
+  );
 
   const [tvList] = useAtom(tvListAtom);
   const [movieList] = useAtom(movieListAtom);
@@ -76,6 +83,7 @@ const GenreList = () => {
       </Helmet>
       <Box>
         <Header title={`${title}`} content={`${totalResults} results found`} />
+        <FilterBlock onSearch={setKeywords} />
         <MediaList
           isLoading={isLoading || isFetching}
           data={data?.results || []}

@@ -2,7 +2,7 @@ import { useQuery } from 'react-query';
 
 import config from '../config';
 import { SimilarMoviesResponse } from '../types';
-import api from '../utils/api';
+import {api} from '../utils/api';
 
 export const useSimilarMovies = (movieID: string) =>
   useQuery(
