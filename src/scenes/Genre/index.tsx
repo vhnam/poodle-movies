@@ -3,6 +3,7 @@ import { Box } from '@chakra-ui/layout';
 import { useHistory, useParams } from 'react-router-dom';
 import { concat, equals, find, ifElse, prop, propEq, propOr } from 'ramda';
 import { useAtom } from 'jotai';
+import { Helmet } from 'react-helmet';
 
 import { Genre } from '../../types';
 
@@ -69,16 +70,21 @@ const GenreList = () => {
   );
 
   return (
-    <Box>
-      <Header title={`${title}`} content={`${totalResults} results found`} />
-      <MediaList
-        isLoading={isLoading || isFetching}
-        data={data?.results || []}
-        totalPages={totalPages}
-        setPage={setPage}
-        show={show}
-      />
-    </Box>
+    <>
+      <Helmet>
+        <title>{title} &#8212; Poodle Movies</title>
+      </Helmet>
+      <Box>
+        <Header title={`${title}`} content={`${totalResults} results found`} />
+        <MediaList
+          isLoading={isLoading || isFetching}
+          data={data?.results || []}
+          totalPages={totalPages}
+          setPage={setPage}
+          show={show}
+        />
+      </Box>
+    </>
   );
 };
 
