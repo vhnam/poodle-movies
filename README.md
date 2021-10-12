@@ -13,6 +13,6 @@ npm run start
 
 ## Topics
 
-react, typescript
-chakra-ui, jotai
+react, typescript,
+chakra-ui, jotai,
 react-query, react-table, react-slick
