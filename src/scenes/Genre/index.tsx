@@ -1,6 +1,6 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { Box } from '@chakra-ui/layout';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { concat, equals, find, ifElse, prop, propEq, propOr } from 'ramda';
 import { useAtom } from 'jotai';
 
@@ -25,6 +25,7 @@ type GenreParams = {
 
 const GenreList = () => {
   const { mediaType, genreID } = useParams<GenreParams>();
+  const { push } = useHistory();
 
   const [page, setPage] = useState(1);
 
@@ -60,6 +61,13 @@ const GenreList = () => {
     [data]
   );
 
+  const show = useCallback(
+    (mediaID) => {
+      push(`/${mediaType}s/${mediaID}`);
+    },
+    [mediaType, push]
+  );
+
   return (
     <Box>
       <Header title={`${title}`} content={`${totalResults} results found`} />
@@ -68,6 +76,7 @@ const GenreList = () => {
         data={data?.results || []}
         totalPages={totalPages}
         setPage={setPage}
+        show={show}
       />
     </Box>
   );

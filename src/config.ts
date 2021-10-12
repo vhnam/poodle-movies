@@ -15,11 +15,20 @@ const apis: APIs = {
       `/discover/${mediaType}?with_genres=${genreID}&page=${page}`,
     method: 'GET',
   },
+  movie: {
+    url: (movieID: string) => `/movie/${movieID}`,
+    method: 'GET',
+  },
+  similarMovies: {
+    url: (movieID: string) => `/movie/${movieID}/similar`,
+    method: 'GET',
+  },
 };
 
 const paths: Record<string, any> = {
   homepage: '/',
-  genre: '/genre/:mediaType/:genreID',
+  genre: '/genres/:mediaType/:genreID',
+  movie: '/movies/:movieID',
 };
 
 const config = {

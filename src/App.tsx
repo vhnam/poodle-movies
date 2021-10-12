@@ -25,6 +25,11 @@ const App = () => (
                 path={config.paths.genre}
                 component={lazy(() => import('./scenes/Genre'))}
               />
+              <Route
+                exact
+                path={config.paths.movie}
+                component={lazy(() => import('./scenes/Movie'))}
+              />
             </Switch>
           </Layout>
         )}

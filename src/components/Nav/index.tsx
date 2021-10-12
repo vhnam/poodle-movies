@@ -18,8 +18,8 @@ const Nav = ({ movieList, tvList }: NavProps) => (
     as="nav"
     alignItems="center"
     justifyContent="space-between"
+    height="3.75rem"
     px="8"
-    py="2"
   >
     <Box>
       <Text
@@ -45,7 +45,7 @@ const Nav = ({ movieList, tvList }: NavProps) => (
           <MenuList>
             {map(
               (item: Genre) => (
-                <MenuItem as={Link} key={item.id} to={`/genre/tv/${item.id}`}>
+                <MenuItem as={Link} key={item.id} to={`/genres/tv/${item.id}`}>
                   {item.name}
                 </MenuItem>
               ),
@@ -69,7 +69,7 @@ const Nav = ({ movieList, tvList }: NavProps) => (
                 <MenuItem
                   as={Link}
                   key={item.id}
-                  to={`/genre/movie/${item.id}`}
+                  to={`/genres/movie/${item.id}`}
                 >
                   {item.name}
                 </MenuItem>

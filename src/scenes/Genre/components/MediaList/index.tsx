@@ -17,6 +17,7 @@ interface MediaListProps {
   isLoading: boolean;
   totalPages: string;
   setPage: (page: number) => void;
+  show: (mediaID: number) => void;
 }
 
 const MediaList = ({
@@ -24,6 +25,7 @@ const MediaList = ({
   isLoading,
   totalPages,
   setPage,
+  show,
 }: MediaListProps) => {
   const columns = useMemo(
     () => [
@@ -137,7 +139,10 @@ const MediaList = ({
               prepareRow(row);
 
               return (
-                <Tr {...row.getRowProps()}>
+                <Tr
+                  {...row.getRowProps()}
+                  onClick={() => show(row.original.id)}
+                >
                   {row.cells.map((cell) => (
                     <Td {...cell.getCellProps()}>{cell.render('Cell')}</Td>
                   ))}
